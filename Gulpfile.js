@@ -56,16 +56,16 @@ gulp.task('views', function() {
 //     });
 
 gulp.task('default',['connect'], function() {
-  server.listen(35729, function(err) {
+  server.listen(35739, function(err) {
     if (err) return console.log(err);
-    gulp.watch(paths.less, function() {
-        gulp.run('styles');
+    gulp.watch('app/less/**/*.less', function() {
+      gulp.run('styles');
     });
     gulp.watch(paths.scriptjs, function() {
-        gulp.run('scripts');
+      gulp.run('scripts');
     });
     gulp.watch(paths.views, function() {
-        gulp.run('views');
+      gulp.run('views');
     });
   });
 });
