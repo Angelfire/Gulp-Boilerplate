@@ -42,13 +42,13 @@ gulp.task('default',['connect'], function() {
   server.listen(35729, function(err) {
     if (err) return console.log(err);
     gulp.watch('app/less/**/*.less', function() {
-        gulp.watch('styles');
+        gulp.run('styles');
     });
     gulp.watch('app/js/**/*.js', function() {
-        gulp.watch('scripts');
+        gulp.run('scripts');
     });
     gulp.watch('app/**/*.html', function() {
-        gulp.watch('views');
+        gulp.run('views');
     });
   });
 });
