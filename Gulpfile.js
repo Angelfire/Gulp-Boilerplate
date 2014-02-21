@@ -41,7 +41,7 @@ gulp.task('views', function() {
 gulp.task('default',['connect'], function() {
   server.listen(35729, function(err) {
     if (err) return console.log(err);
-    gulp.watch('app/css/less/**/*.less', function() {
+    gulp.watch('app/less/**/*.less', function() {
         gulp.watch('styles');
     });
     gulp.watch('app/js/**/*.js', function() {
