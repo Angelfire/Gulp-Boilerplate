@@ -4,6 +4,8 @@ var
   path = require('path'),
   prefix = require('gulp-autoprefixer'),
   server = require('tiny-lr')(),
+  // lr = require('tiny-lr'),
+  // server = lr(),
   livereload = require('gulp-livereload'),
   connect = require('gulp-connect');
 
@@ -38,6 +40,15 @@ gulp.task('views', function() {
 });
 
 // The default task (called when you run `gulp`)
+
+/* NOTE */
+// gulp.run() has been deprecated. So if you have the last version of Gulp you have to change it for:
+// i.e: 
+//     gulp.watch('app/less/**/*.less', function() {
+//         gulp.watch('styles');
+//     });
+
+
 gulp.task('default',['connect'], function() {
   server.listen(35729, function(err) {
     if (err) return console.log(err);

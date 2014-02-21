@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Andres Bedoya",
   "dependencies": {
-    "gulp": "~3.5.0",
+    "gulp": "~3.5.2",
     "path": "~0.4.9",
     "tiny-lr": "0.0.5",
     "gulp-autoprefixer": "0.0.4",
