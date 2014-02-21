@@ -9,6 +9,12 @@ var
   livereload = require('gulp-livereload'),
   connect = require('gulp-connect');
 
+// Paths
+var paths = {
+  less: 'app/less/main.less',
+  scriptsjs: 'app/js/**/*.js',
+  views: 'app/**/*.html'
+};
 
 gulp.task('connect', connect.server({
   root: __dirname + '/app',
@@ -18,26 +24,27 @@ gulp.task('connect', connect.server({
 
 gulp.task('styles', function() {
   return gulp
-    .src('./app/less/main.less')
+    .src(paths.less)
     .pipe(less({
         paths: [path.join(__dirname, 'app', 'assets', 'less')]
     }))
     .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-    .pipe(gulp.dest('./app/css'))
+    .pipe(gulp.dest('app/css'))
     .pipe(livereload(server));
 });
 
 gulp.task('scripts', function() {
   return gulp
-    .src('./app/js/**/*.js')
+    .src(paths.scriptsjs)
     .pipe(livereload(server));
 });
 
 gulp.task('views', function() {
   return gulp
-    .src('./app/**/*.html')
+    .src(paths.views)
     .pipe(livereload(server));
 });
+
 
 // The default task (called when you run `gulp`)
 
@@ -48,17 +55,16 @@ gulp.task('views', function() {
 //         gulp.watch('styles');
 //     });
 
-
 gulp.task('default',['connect'], function() {
   server.listen(35729, function(err) {
     if (err) return console.log(err);
-    gulp.watch('app/less/**/*.less', function() {
+    gulp.watch(paths.less, function() {
         gulp.run('styles');
     });
-    gulp.watch('app/js/**/*.js', function() {
+    gulp.watch(paths.scriptjs, function() {
         gulp.run('scripts');
     });
-    gulp.watch('app/**/*.html', function() {
+    gulp.watch(paths.views, function() {
         gulp.run('views');
     });
   });
