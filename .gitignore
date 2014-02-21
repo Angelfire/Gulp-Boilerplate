@@ -1,0 +1,15 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Sublime-text
+/*.sublime-project
+*.sublime-workspace
+
+# Node
+node_modules/
